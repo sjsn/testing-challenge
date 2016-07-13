@@ -6,6 +6,7 @@
 	<meta name="author" content="Sam San Nicolas, Sarah Stanton, Rachel Paresa, Sunho Kim">
 	<meta name="description" content="testing, challenge, info343">
 	<title>Sign up</title>
+	<link rel="icon" href="img/signup.png"
 	<!-- Angular -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 	<!-- Custom JS -->
@@ -17,7 +18,8 @@
 </head>
 <body>
 	<main role="main">
-		<form role="form" class="form-group" name="SignupForm">
+		<form role="form" class="form-group" name="signupForm">
+			<button class="btn btn-primary" role="button" ng-disabled="signupForm.$invalid">Sign Me Up!</button>
 		</form>
 	</main>
 </body>
