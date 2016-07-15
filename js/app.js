@@ -13,4 +13,19 @@ myApp.controller('formCtrl', ["$scope", function($scope){
 		$scope.submit = true;
 	};
 
+	$scope.passConf = function() {
+		
+		/*
+		if ($scope.password != $scope.passwordConf) {
+			$scope.password.$setValidity('unique', false);
+			$scope.passwordConf.$setValidity('unique', false);
+		}
+		else {
+			$scope.password.$setValidity('unique', true);
+			$scope.passwordConf.$setValidity('unique', true);
+		}
+*/
+	};
+	
+
 }]);
