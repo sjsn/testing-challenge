@@ -18,7 +18,18 @@
 </head>
 <body>
 	<main role="main">
-		<form role="form" class="form-group" name="signupForm">			
+		<header>
+			<h1>Sign up</h1>
+		</header>
+
+		<form role="form" class="form-group" name="signupForm" class="container">			
+
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email" type="email" class="form-control" required></input>
+				<p class="help-block" ng-if="signupForm.email.$touched">Required!</p>
+				 <p class="error" ng-show="signupForm.input.$error.email">Not valid email!</p>
+			</div>
 
 			<div class="form-group">
 				<label for="fName">First Name:</label>
