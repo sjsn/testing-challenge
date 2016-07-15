@@ -21,14 +21,11 @@ describe("Submit form button", function() {
 });
 
 
-describe('Signup Metadata', function(){
-	it('should have the correct title', function(){
+describe('Signup Angular module and controller', function(){
+	it('should have', function(){
 
 	});
-});
-
-describe('Initial Page Appearnace', function(){
-	it('should have', function(){
+	it('should check controller', function(){
 
 	});
 });
