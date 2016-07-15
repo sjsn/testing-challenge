@@ -1,8 +1,16 @@
 "use strict";
 
-var myApp = angular.moduel('formApp', []);
+var myApp = angular.module('formApp', []);
 
-myApp.controller('formCtrl', [ function(){
+myApp.controller('formCtrl', ["$scope", function($scope){
+
+
+	$scope.clearForm = function() {
+		$scope.submit = false;
+	};
+
+	$scope.submitForm = function() {
+		$scope.submit = true;
+	};
 
 }]);
-

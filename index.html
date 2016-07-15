@@ -17,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<main role="main">
+	<main role="main" class="container">
 		<header>
 			<h1>Sign up</h1>
 		</header>
@@ -52,8 +52,9 @@
 				<input id="passwordConf" name="passwordConf" type="passwordConf" class="form-control" required></input>
 			</div>
 
-			<button class="btn btn-default" id="reset" role="button" ng-click="">Reset</button>
-			<button class="btn btn-primary" id="submit" role="button" ng-disabled="signupForm.$invalid" ng-click="">Sign Me Up!</button>
+			<button class="btn btn-default" id="reset" role="button" ng-click="clearForm()">Reset</button>
+			<button class="btn btn-primary" id="submit" role="button" ng-disabled="signupForm.$invalid" ng-click="submitForm()">Sign Me Up!</button>
+			<p ng-if="submit == true &amp;&amp; submitForn.$valid" id="confirmation">Form submitted!</p>
 
 		</form>
 	</main>
