@@ -47,13 +47,15 @@
 			<div ng-class="form-group">
 				<label for="password">Password:</label>
 				<input type="password" id="password" name="password" class="form-control" ng-model="password" ng-change="passConf()" required></input>
-				<p class="help-block" ng-if="signupForm.password.$invalid">Required!</p>
+				<p class="help-block" ng-show="signupForm.password.$touched " ng-hide="signupForm.password.$valid">Required!</p>
+				<p class="help-block" ng-if="password != passwordConf">Passwords must match</p>
 			</div>
 
 			<div class="form-group">
 				<label for="passwordConf">Confirm Password:</label>
 				<input id="passwordConf" name="passwordConf" type="password" class="form-control" ng-model="passwordConf" ng-change="passConf()" required></input>
-				<p class="help-block" ng-if="signupForm.passwordConf.$invalid">Required!</p>
+				<p class="help-block" ng-show="signupForm.passwordConf.$touched" ng-hide="signupForm.passwordConf.$valid">Required!</p>
+				<p class="help-block" ng-if="password != passwordConf">Passwords must match</p>
 			</div>
 
 			<button class="btn btn-default" id="reset" role="button" ng-click="clearForm()">Reset</button>
