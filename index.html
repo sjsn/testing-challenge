@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="formApp">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +22,7 @@
 			<h1>Sign up</h1>
 		</header>
 
-		<form role="form" class="form-group" name="signupForm" class="container">			
+		<form role="form" class="form-group" name="signupForm" class="container" ng-controller="formCtrl">			
 
 			<div class="form-group">
 				<label for="email">Email:</label>
