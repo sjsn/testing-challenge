@@ -241,3 +241,80 @@ describe('Sign up Form', function() {
 
 
 });
+
+describe('Last name input', function() {
+
+	it('should be invalid if last name is blank', function() {
+
+		var lNameInput = element(by.model('lName'));
+		lNameInput.sendKeys('');
+		expect(lNameInput.$valid).toBe(undefined);
+	});
+
+	it('should be invalid if last name is touched', function() {
+
+		var lNameInput = element(by.model('lName'));
+		lNameInput.sendKeys(' ');
+		lNameInput.clear();
+		expect(lNameInput.$valid).toBe(false);
+	});
+
+});
+
+
+describe('password input', function() {
+
+	it('should be invalid if password is blank', function() {
+
+		var pass = element(by.css('#password'));
+
+		pass.sendKeys('');
+		expect(pass.$valid).toEqual(false);
+	});
+
+	it('should be invalid if password is touched', function() {
+
+		var pass = element(by.css('#password'));
+
+		pass.sendKeys('');
+		pass.clear();
+		expect(pass.$valid).toEqual(false);
+	});
+
+	it('should be invalid if passwords do not match', function() {
+		var pass = element(by.css('#password'));
+		var passconf = element(by.css('#passwordConf'));
+
+		pass.sendKeys('aaa');
+		passconf.sendKeys('bbb');
+		expect(pass.$valid).toEqual(false);
+	});
+
+});
+
+describe('password confirm input', function() {
+
+	it('should be invalid if passwordConf is blank', function() {
+
+		var passconf = element(by.css('#passwordConf'));
+		passconf.sendKeys('');
+		expect(passconf.$valid).toEqual(false);
+	});
+
+	it('should be invalid if password confirm is touched', function() {
+
+		var passconf = element(by.css('#passwordConf'));
+		passconf.sendKeys(' ');
+		passconf.clear();
+		expect(passconf.$valid).toEqual(false);
+	});
+
+	it('should be invalid if passwords do not match', function() {
+		var pass = element(by.css('#password'));
+		var passconf = element(by.css('#passwordConf'));
+		pass.sendKeys('aaa');
+		passconf.sendKeys('bbb');
+		expect(passconf.$valid).toEqual(false);
+	});
+
+});
