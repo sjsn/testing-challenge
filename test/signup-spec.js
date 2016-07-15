@@ -2,19 +2,142 @@
 
 describe("Submit form button", function() {
 
-	// Opens the browser to the form
-	browser.get("http://localhost:8080/#/");
 	var submitButton = element(by.css("#submit"));
 
-	it("should submit the form", function() {
+	it("should display a submit message when input is valid and it is clicked", function() {
 
-		expect(submitButton/* + something */).toEqual(/* something */);
+		var email = element(by.css(""));
+		var lName = element(by.css("#lName"));
+		var password = element(by.css("#password"));
+		var passConf = element(by.css("#passwordConf"));
+
+		email.sendKeys("test@email.com");
+		lName.sendKeys("blan");
+		password.sendKeys("password");
+		password.sendKeys("password");
+
+		submitButton.click();
+		expect(element(by.css("#confirmation"))).isDisplayed().toBeTruthy();
 
 	});
 
-	it("should not be clickable when form is blank", function() {
+	it("should be disabled when form is blank", function() {
+
+		var email = element(by.css(""));
+		var lName = element(by.css("#lName"));
+		var password = element(by.css("#password"));
+		var passConf = element(by.css("#passwordConf"));
+
+		email.clear();
+		lName.clear();
+		password.clear();
+		passConf.clear();
 
 		expect(submitButton.isEnabled()).toEqual(false);
+
+	});
+
+	it("should be disabled when email is blank", function() {
+		var email = element(by.css(""));
+		var lName = element(by.css("#lName"));
+		var password = element(by.css("#password"));
+		var passConf = element(by.css("#passwordConf"));
+
+		email.clear();
+		lName.sendKeys("blah");
+		password.sendKeys("password");
+		passConf.sendKeys("password");
+
+		expect(submitButton.isEnabled()).toEqual(false);
+	});
+
+	it("should be disabled when last name is blank", function() {
+		var email = element(by.css(""));
+		var lName = element(by.css("#lName"));
+		var password = element(by.css("#password"));
+		var passConf = element(by.css("#passwordConf"));
+
+		email.sendKeys("test@email.com");
+		fName.sendKeys("blah");
+		lName.clear();
+		password.sendKeys("password");
+		passConf.sendKeys("password");
+
+		expect(submitButton.isEnabled()).toEqual(false);
+	});
+
+	it("should be disabled when password is blank", function() {
+		var email = element(by.css(""));
+		var lName = element(by.css("#lName"));
+		var password = element(by.css("#password"));
+		var passConf = element(by.css("#passwordConf"));
+
+		email.sendKeys("test@email.com");
+		lName.sendKeys("blah");
+		password.clear();
+		passConf.sendKeys("password");
+
+		expect(submitButton.isEnabled()).toEqual(false);
+	});
+
+	it("should be disabled when password confirmation is blank", function() {
+		var email = element(by.css(""));
+		var lName = element(by.css("#lName"));
+		var password = element(by.css("#password"));
+		var passConf = element(by.css("#passwordConf"));
+
+		email.sendKeys("test@email.com");
+		lName.sendKeys("blah");
+		password.sendKeys("password");
+		passConf.clear();
+
+		expect(submitButton.isEnabled()).toEqual(false);
+	});
+
+	it("should be disabled when password confirmation doesn't match password", function() {
+		var email = element(by.css(""));
+		var lName = element(by.css("#lName"));
+		var password = element(by.css("#password"));
+		var passConf = element(by.css("#passwordConf"));
+
+		email.sendKeys("test@email.com");
+		lName.sendKeys("blah");
+		password.sendKeys("password");
+		passConf.sendKeys("notthesamepassword");
+
+		expect(submitButton.isEnabled()).toEqual(false);
+	});
+
+});
+
+describe("Reset form button", function() {
+
+	it("should reset all inputs to blank", function() {
+		var resetButton = element(by.css("#reset"));
+		resetButton.click();
+
+		var email = element(by.css(""));
+		var fName = element(by.css("#fName"));
+		var lName = element(by.css("#lName"));
+		var password = element(by.css("#password"));
+		var passConf = element(by.css("#passwordConf"));
+
+		expect(email.getAttribute("value")).toEqual("");
+		expect(fName.getAttribute("value")).toEqual("");
+		expect(lName.getAttribute("value")).toEqual("");
+		expect(password.getAttribute("value")).toEqual("");
+		expect(passConf.getAttribute("value")).toEqual("");
+	});
+
+	it("should disable submit button", function() {
+
+		var resetButton = element(by.css("#reset"));
+		resetButton.click();
+
+		var submitButton = element(by.css("#submit"));
+
+		expect(submitButton.isEnabled()).toEqual(false);
+
 
 	});
 
