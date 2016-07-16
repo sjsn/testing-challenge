@@ -46,10 +46,10 @@
 
 			<div ng-class="form-group">
 				<label for="birthdate">Birthdate:</label>
-				<input id="birthdate" name="birthdate" class="form-control" ng-model="birthdate" required ng-change=validateBday()></input>
-				<p class="help-block" ng-if="signupForm.birthdate.$touched && signupForm.birthdate.$error.required">Required!</p>
-				<p class="error" ng-if="signupForm.birthdate.$error.validDate">You must enter date in a valid date format</p>
-				<p class="error" ng-if="signupForm.birthdate.$error.validAge">You must be 13 years old to join</p>
+				<input id="birthdate" name="birthdate" class="form-control" ng-model="birthdate" required ng-change=validateBday() role="textbox"></input>
+				<p aria-live="polite" class="help-block" ng-if="signupForm.birthdate.$touched && signupForm.birthdate.$error.required">Required!</p>
+				<p aria-live="polite" class="errorValid" ng-if="signupForm.birthdate.$error.validDate">You must enter date in a valid date format</p>
+				<p aria-live="polite" class="errorAge" ng-if="signupForm.birthdate.$error.validAge">You must be 13 years old to join</p>
 			</div>
 
 			<div ng-class="form-group">

@@ -220,20 +220,25 @@ describe('Email input', function() {
 
 	it('should be valid if email is valid', function(){
 		var emailInput = element(by.css("#email"));
-		var button = element(by.css("#submit"));
-		//should be invalid if empty
+		var message = element(by.css('#help-block-email'));
+		var errorEmail = element(by.css('#errorEmail'));
+		
+		//should be invalid if empty and show required message
 		emailInput.sendKeys('');
-		expect(button.isEnabled()).toEqual(false);
+		expect(emailInput.$valid).not.toEqual(true);
+		expect(message.isPresent()).toEqual(true);
 
-		//should be invalid if not proper format
+		//should be invalid if not proper format and 
+		//show that email is invalid error message
 		emailInput.clear(); 
 		emailInput.sendKeys('aaa');
-		expect(button.isEnabled()).toEqual(false);
+		expect(emailInput.$valid).not.toEqual(true);
+		expect(errorEmail.isPresent()).toEqual(true);
 
 		//should be valid if email is valid
 		emailInput.clear(); 
 		emailInput.sendKeys('cat@gmail.com');
-		expect(button.isEnabled()).toEqual(true);
+		expect(emailInput.$valid).toEqual(true);
 	});
 
 
@@ -362,8 +367,25 @@ describe('Birthdate input', function() {
    
    it('should be invalid when person is younger than 13', function() {
 	   var bDate = element(by.css('#birthdate'));
-	   expect(bDate.$valid).
-
+	   var ageCheck = element(by.css('.errorAge'))
+	   bDate.sendKeys('1/1/2016');
+	   bDate.clear();
+	   expect(ageCheck.isPresent()).toEqual(true);
    });
+
+   it('shoud be invalid when input is not in javascript date format', function() {
+	   var bDate = element(by.css('#birthdate'));
+	   var validForm = element(by.css('.errorValid'));
+	   bDate.sendKeys('Hello');
+	   bDate.clear();
+	   expect(validForm.isPresent()).toEqual(true);
+   });
+
+   it('should be invalid when birthdate is left blank', function() {
+	   var bDate = element(by.css('#birthdate'));
+	   bDate.sendKeys('');
+	   bDate.clear();
+	   expect(bDate.$valid).not.toEqual(true);
+   })
 
 });
