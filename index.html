@@ -45,6 +45,13 @@
 			</div>
 
 			<div ng-class="form-group">
+				<label for="birthdate">Birthdate:</label>
+				<input type="birthdate" id="birthdate" name="birthdate" class="form-control" ng-model="birthdate" required></input>
+				<p class="help-block" ng-if="signupForm.birthdate.$touched " ng-hide="signupForm.birthdate.$valid">Required!</p>
+				<!--<p class="help-block" ng-if="">You must be at least 13</p>-->
+			</div>
+
+			<div ng-class="form-group">
 				<label for="password">Password:</label>
 				<input type="password" id="password" name="password" class="form-control" ng-model="password" ng-change="passConf()" required></input>
 				<p class="help-block" ng-show="signupForm.password.$touched " ng-hide="signupForm.password.$valid">Required!</p>
