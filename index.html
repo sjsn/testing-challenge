@@ -68,7 +68,7 @@
 
 			<button class="btn btn-default" id="reset" role="button" ng-click="clearForm()">Reset</button>
 			<button class="btn btn-primary" id="submit" role="button" ng-disabled="signupForm.$invalid" ng-click="submitForm()">Sign Me Up!</button>
-			<p ng-if="submit &amp;&amp; signupForm.$valid" id="confirmation">Form submitted!</p>
+			<p ng-if="submit &amp;&amp; signupForm.$valid" id="confirmation" aria-live="polite">Form submitted!</p>
 
 		</form>
 	</main>
