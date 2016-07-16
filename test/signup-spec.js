@@ -248,7 +248,7 @@ describe('Last name input', function() {
 
 		var lNameInput = element(by.model('lName'));
 		lNameInput.sendKeys('');
-		expect(lNameInput.$valid).toBe(undefined);
+		expect(lNameInput.$valid).not.toEqual(true);
 	});
 
 	it('should be invalid if last name is touched', function() {
@@ -256,7 +256,7 @@ describe('Last name input', function() {
 		var lNameInput = element(by.model('lName'));
 		lNameInput.sendKeys(' ');
 		lNameInput.clear();
-		expect(lNameInput.$valid).toBe(false);
+		expect(lNameInput.$valid).not.toEqual(true);
 	});
 
 });
@@ -269,7 +269,7 @@ describe('password input', function() {
 		var pass = element(by.css('#password'));
 
 		pass.sendKeys('');
-		expect(pass.$valid).toEqual(false);
+		expect(pass.$valid).not.toEqual(true);
 	});
 
 	it('should be invalid if password is touched', function() {
@@ -278,7 +278,7 @@ describe('password input', function() {
 
 		pass.sendKeys('');
 		pass.clear();
-		expect(pass.$valid).toEqual(false);
+		expect(pass.$valid).not.toEqual(true);
 	});
 
 	it('should be invalid if passwords do not match', function() {
@@ -287,7 +287,7 @@ describe('password input', function() {
 
 		pass.sendKeys('aaa');
 		passconf.sendKeys('bbb');
-		expect(pass.$valid).toEqual(false);
+		expect(pass.$valid).not.toEqual(true);
 	});
 
 });
@@ -298,7 +298,7 @@ describe('password confirm input', function() {
 
 		var passconf = element(by.css('#passwordConf'));
 		passconf.sendKeys('');
-		expect(passconf.$valid).toEqual(false);
+		expect(passconf.$valid).not.toEqual(true);
 	});
 
 	it('should be invalid if password confirm is touched', function() {
@@ -306,7 +306,7 @@ describe('password confirm input', function() {
 		var passconf = element(by.css('#passwordConf'));
 		passconf.sendKeys(' ');
 		passconf.clear();
-		expect(passconf.$valid).toEqual(false);
+		expect(passconf.$valid).not.toEqual(true);
 	});
 
 	it('should be invalid if passwords do not match', function() {
@@ -314,7 +314,7 @@ describe('password confirm input', function() {
 		var passconf = element(by.css('#passwordConf'));
 		pass.sendKeys('aaa');
 		passconf.sendKeys('bbb');
-		expect(passconf.$valid).toEqual(false);
+		expect(passconf.$valid).not.toEqual(true);
 	});
 
 });
