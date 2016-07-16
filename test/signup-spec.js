@@ -259,6 +259,14 @@ describe('Last name input', function() {
 		expect(lNameInput.$valid).not.toEqual(true);
 	});
 
+	it('should show message if last name is touched', function() {
+		var lNameInput = element(by.model('lName'));
+		var message = element(by.css('.help-block-lname'));
+		lNameInput.sendKeys(' ');
+		lNameInput.clear();
+		expect(message.isPresent()).toEqual(true);
+	});
+
 });
 
 
@@ -290,6 +298,23 @@ describe('password input', function() {
 		expect(pass.$valid).not.toEqual(true);
 	});
 
+	it('should show message if password is touched and invalid', function() {
+		var lNameInput = element(by.model('lName'));
+		var message = element(by.css('.help-block-password'));
+		lNameInput.sendKeys(' ');
+		lNameInput.clear();
+		expect(message.isPresent()).toEqual(true);
+	});
+
+	it('should show message if password does not match password confirm', function() {
+		var lNameInput = element(by.model('lName'));
+		var message = element(by.css('.help-block-password2'));
+		lNameInput.sendKeys(' ');
+		lNameInput.clear();
+		expect(message.isPresent()).toEqual(true);
+	});
+
+
 });
 
 describe('password confirm input', function() {
@@ -316,5 +341,22 @@ describe('password confirm input', function() {
 		passconf.sendKeys('bbb');
 		expect(passconf.$valid).not.toEqual(true);
 	});
+
+	it('should show message if password confirm is touched and invalid', function() {
+		var lNameInput = element(by.model('lName'));
+		var message = element(by.css('.help-block-passconf'));
+		lNameInput.sendKeys(' ');
+		lNameInput.clear();
+		expect(message.isPresent()).toEqual(true);
+	});
+
+	it('should show message if password confirm does not match password', function() {
+		var lNameInput = element(by.model('lName'));
+		var message = element(by.css('.help-block-passconf2'));
+		lNameInput.sendKeys(' ');
+		lNameInput.clear();
+		expect(message.isPresent()).toEqual(true);
+	});
+
 
 });
