@@ -28,9 +28,9 @@
 
 			<div class="form-group">
 				<label for="email">Email:</label>
-				<input type="email" id="email" name="email" type="email" class="form-control" required></input>
+				<input type="email" id="email" name="email" type="email" class="form-control" ng-model="email" required></input>
 				<p class="help-block" ng-if="signupForm.email.$touched">Required!</p>
-				 <p class="error" ng-show="signupForm.input.$error.email">Not valid email!</p>
+				<p class="error" ng-show="signupForm.input.$error.email">Not valid email!</p>
 			</div>
 
 			<div class="form-group">
@@ -61,7 +61,7 @@
 			<div class="form-group">
 				<label for="passwordConf">Confirm Password:</label>
 				<input id="passwordConf" name="passwordConf" type="password" class="form-control" ng-model="passwordConf" ng-change="passConf()" required></input>
-				<p class="help-block-passconf" ng-show="signupForm.passwordConf.$touched" ng-hide="signupForm.passwordConf.$valid">Required!</p>
+				<p class="help-block-passconf" ng-show="signupForm.passwordConf.$touched &amp;&amp; signupForm.passwordConf.$invalid">Required!</p>
 				<p class="help-block-passconf2" ng-if="password != passwordConf">Passwords must match</p>
 			</div>
 

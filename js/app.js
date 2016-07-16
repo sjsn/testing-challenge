@@ -6,7 +6,9 @@ myApp.controller('formCtrl', ["$scope", function($scope){
 
 	$scope.clearForm = function() {
 		$scope.submit = false;
+		$scope.email = "";
 		$scope.lName = "";
+		$scope.birthdate = "";
 		$scope.password = "";
 		$scope.passwordConf = "";
 	};
