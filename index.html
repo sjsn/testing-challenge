@@ -48,8 +48,8 @@
 				<label for="birthdate">Birthdate:</label>
 				<input id="birthdate" name="birthdate" class="form-control" ng-model="birthdate" required ng-change=validateBday()></input>
 				<p class="help-block" ng-if="signupForm.birthdate.$touched && signupForm.birthdate.$error.required">Required!</p>
-				<p class="error" ng-if="signupForm.birthdate.$error.validDate">You must enter date in a valid date format</p>
-				<p class="error" ng-if="signupForm.birthdate.$error.validAge">You must be 13 years old to join</p>
+				<p class="errorValid" ng-if="signupForm.birthdate.$error.validDate">You must enter date in a valid date format</p>
+				<p class="errorAge" ng-if="signupForm.birthdate.$error.validAge">You must be 13 years old to join</p>
 			</div>
 
 			<div ng-class="form-group">

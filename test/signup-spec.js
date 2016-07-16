@@ -362,8 +362,25 @@ describe('Birthdate input', function() {
    
    it('should be invalid when person is younger than 13', function() {
 	   var bDate = element(by.css('#birthdate'));
-	   expect(bDate.$valid).
-
+	   var ageCheck = element(by.css('.errorAge'))
+	   bDate.sendKeys('1/1/2016');
+	   bDate.clear();
+	   expect(ageCheck.isPresent()).toEqual(true);
    });
+
+   it('shoud be invalid when input is not in javascript date format', function() {
+	   var bDate = element(by.css('#birthdate'));
+	   var validForm = element(by.css('.errorValid'));
+	   bDate.sendKeys('Hello');
+	   bDate.clear();
+	   expect(validForm.isPresent()).toEqual(true);
+   });
+
+   it('should be invalid when birthdate is left blank', function() {
+	   var bDate = element(by.css('#birthdate'));
+	   bDate.sendKeys('');
+	   bDate.clear();
+	   expect(bDate.$valid).not.toEqual(true);
+   })
 
 });
