@@ -12,35 +12,35 @@ describe("Submit form button", function() {
 		var submitButton = element(by.css("#submit"));
 		var email = element(by.css("#email"));
 		var lName = element(by.css("#lName"));
-		// var date = element(by.css("#date"));
+		var date = element(by.css("#birthdate"));
 		var password = element(by.css("#password"));
 		var passConf = element(by.css("#passwordConf"));
 
 		email.sendKeys("test@email.com");
 		lName.sendKeys("blah");
-		// date.sendKeys("1/1/2000");
+		date.sendKeys("1/1/2000");
 		password.sendKeys("password");
 		passConf.sendKeys("password");
 
 		expect(submitButton.isEnabled()).toEqual(true);
 	});
 
-	it("should display a submit message when input is valid and it is clicked", function() {
+	it("should display a 'submitted' message when input is valid and it is clicked", function() {
 		var submitButton = element(by.css("#submit"));
 		var email = element(by.css("#email"));
 		var lName = element(by.css("#lName"));
-		// var date = element(by.css("#date"));
+		var date = element(by.css("#birthdate"));
 		var password = element(by.css("#password"));
 		var passConf = element(by.css("#passwordConf"));
 
 		email.sendKeys("test@email.com");
 		lName.sendKeys("blah");
-		// date.sendKeys("1/1/2000");
+		date.sendKeys("1/1/2000");
 		password.sendKeys("password");
 		passConf.sendKeys("password");
 
 		submitButton.click();
-		expect(element(by.css("#confirmation")).isPresent()).toEqual(true);
+		expect(element(by.css("#confirmation")).isPresent()).toBeTruthy();
 
 	});
 
@@ -48,13 +48,13 @@ describe("Submit form button", function() {
 		var submitButton = element(by.css("#submit"));
 		var email = element(by.css("#email"));
 		var lName = element(by.css("#lName"));
-		// var date = element(by.css("#date"));
+		var date = element(by.css("#birthdate"));
 		var password = element(by.css("#password"));
 		var passConf = element(by.css("#passwordConf"));
 
 		email.clear();
 		lName.clear();
-		// date.clear();
+		date.clear();
 		password.clear();
 		passConf.clear();
 
@@ -66,13 +66,13 @@ describe("Submit form button", function() {
 		var submitButton = element(by.css("#submit"));
 		var email = element(by.css("#email"));
 		var lName = element(by.css("#lName"));
-		// var date = element(by.css("#date"));
+		var date = element(by.css("#birthdate"));
 		var password = element(by.css("#password"));
 		var passConf = element(by.css("#passwordConf"));
 
 		email.clear();
 		lName.sendKeys("blah");
-		// date.sendKeys("1/1/2000");
+		date.sendKeys("1/1/2000");
 		password.sendKeys("password");
 		passConf.sendKeys("password");
 
@@ -86,46 +86,47 @@ describe("Submit form button", function() {
 		var submitButton = element(by.css("#submit"));
 		var email = element(by.css("#email"));
 		var lName = element(by.css("#lName"));
-		// var date = element(by.css("#date"));
+		var date = element(by.css("#birthdate"));
 		var password = element(by.css("#password"));
 		var passConf = element(by.css("#passwordConf"));
 
 		email.sendKeys("test@email.com");
 		lName.clear();
-		// date.sendKeys("1/1/2000");
+		date.sendKeys("1/1/2000");
 		password.sendKeys("password");
 		passConf.sendKeys("password");
 
 		expect(submitButton.isEnabled()).toEqual(false);
 	});
 
-	// it("should be disabled when date is blank", function() {
-	// 	var email = element(by.css("#email"));
-	// 	var lName = element(by.css("#lName"));
-	//  var date = element(by.css("#date"));
-	// 	var password = element(by.css("#password"));
-	// 	var passConf = element(by.css("#passwordConf"));
-
-	// 	email.sendKeys("test@email.com");
-	// 	lName.sendKeys("blah");
-	//  date.sendKeys("1/1/2000")
-	// 	password.sendKeys("password");
-	// 	passConf.sendKeys("password");
-
-	// 	expect(submitButton.isEnabled()).toEqual(false);
-	// });
-
-	it("should be disabled when password is blank", function() {
+	it("should be disabled when date is blank", function() {
 		var submitButton = element(by.css("#submit"));
 		var email = element(by.css("#email"));
 		var lName = element(by.css("#lName"));
-		// var date = element(by.css("#date"));
+	 	var date = element(by.css("#birthdate"));
 		var password = element(by.css("#password"));
 		var passConf = element(by.css("#passwordConf"));
 
 		email.sendKeys("test@email.com");
 		lName.sendKeys("blah");
-		// date.sendKeys("1/1/2000");
+	 	date.clear();
+		password.sendKeys("password");
+		passConf.sendKeys("password");
+
+		expect(submitButton.isEnabled()).toEqual(false);
+	});
+
+	it("should be disabled when password is blank", function() {
+		var submitButton = element(by.css("#submit"));
+		var email = element(by.css("#email"));
+		var lName = element(by.css("#lName"));
+		var date = element(by.css("#birthdate"));
+		var password = element(by.css("#password"));
+		var passConf = element(by.css("#passwordConf"));
+
+		email.sendKeys("test@email.com");
+		lName.sendKeys("blah");
+		date.sendKeys("1/1/2000");
 		password.clear();
 		passConf.sendKeys("password");
 
@@ -136,13 +137,13 @@ describe("Submit form button", function() {
 		var submitButton = element(by.css("#submit"));
 		var email = element(by.css("#email"));
 		var lName = element(by.css("#lName"));
-		// var date = element(by.css("#date"));
+		var date = element(by.css("#birthdate"));
 		var password = element(by.css("#password"));
 		var passConf = element(by.css("#passwordConf"));
 
 		email.sendKeys("test@email.com");
 		lName.sendKeys("blah");
-		// date.sendKeys("1/1/2000");
+		date.sendKeys("1/1/2000");
 		password.sendKeys("password");
 		passConf.clear();
 
@@ -153,13 +154,13 @@ describe("Submit form button", function() {
 		var submitButton = element(by.css("#submit"));
 		var email = element(by.css("#email"));
 		var lName = element(by.css("#lName"));
-		// var date = element(by.css("#date"));
+		var date = element(by.css("#birthdate"));
 		var password = element(by.css("#password"));
 		var passConf = element(by.css("#passwordConf"));
 
 		email.sendKeys("test@email.com");
 		lName.sendKeys("blah");
-		// date.sendKeys("1/1/2000");
+		date.sendKeys("1/1/2000");
 		password.sendKeys("password");
 		passConf.sendKeys("notthesamepassword");
 
@@ -183,14 +184,14 @@ describe("Reset form button", function() {
 		var email = element(by.css("#email"));
 		var fName = element(by.css("#fName"));
 		var lName = element(by.css("#lName"));
-		// var date = element(by.css("#date"));
+		var date = element(by.css("#birthdate"));
 		var password = element(by.css("#password"));
 		var passConf = element(by.css("#passwordConf"));
 
 		expect(email.getAttribute("value")).toEqual("");
 		expect(fName.getAttribute("value")).toEqual("");
 		expect(lName.getAttribute("value")).toEqual("");
-		// expect(date.getAttribute("value")).toEqual("");
+		expect(date.getAttribute("value")).toEqual("");
 		expect(password.getAttribute("value")).toEqual("");
 		expect(passConf.getAttribute("value")).toEqual("");
 	});
@@ -210,17 +211,13 @@ describe("Reset form button", function() {
 });
 
 
-describe('Signup Angular module and controller', function(){
-	it('should have', function(){
-
+describe('Email input', function() {
+	//Runs this callback before each test
+	beforeEach(function() {
+		// Reload the page before each test to keep testing 'clean'
+	browser.get('http://localhost:8080');
 	});
-	it('should check controller', function(){
 
-	});
-});
-
-describe('Sign up Form', function() {
-	
 	it('should be valid if email is valid', function(){
 		var emailInput = element(by.css("#email"));
 		var button = element(by.css("#submit"));
@@ -259,6 +256,14 @@ describe('Last name input', function() {
 		expect(lNameInput.$valid).not.toEqual(true);
 	});
 
+	it('should show message if last name is touched', function() {
+		var lNameInput = element(by.model('lName'));
+		var message = element(by.css('.help-block-lname'));
+		lNameInput.sendKeys(' ');
+		lNameInput.clear();
+		expect(message.isPresent()).toEqual(true);
+	});
+
 });
 
 
@@ -290,6 +295,23 @@ describe('password input', function() {
 		expect(pass.$valid).not.toEqual(true);
 	});
 
+	it('should show message if password is touched and invalid', function() {
+		var lNameInput = element(by.model('lName'));
+		var message = element(by.css('.help-block-password'));
+		lNameInput.sendKeys(' ');
+		lNameInput.clear();
+		expect(message.isPresent()).toEqual(true);
+	});
+
+	it('should show message if password does not match password confirm', function() {
+		var lNameInput = element(by.model('lName'));
+		var message = element(by.css('.help-block-password2'));
+		lNameInput.sendKeys(' ');
+		lNameInput.clear();
+		expect(message.isPresent()).toEqual(true);
+	});
+
+
 });
 
 describe('password confirm input', function() {
@@ -317,12 +339,27 @@ describe('password confirm input', function() {
 		expect(passconf.$valid).not.toEqual(true);
 	});
 
+	it('should show message if password confirm is touched and invalid', function() {
+		var lNameInput = element(by.model('lName'));
+		var message = element(by.css('.help-block-passconf'));
+		lNameInput.sendKeys(' ');
+		lNameInput.clear();
+		expect(message.isPresent()).toEqual(true);
+	});
+
+	it('should show message if password confirm does not match password', function() {
+		var lNameInput = element(by.model('lName'));
+		var message = element(by.css('.help-block-passconf2'));
+		lNameInput.sendKeys(' ');
+		lNameInput.clear();
+		expect(message.isPresent()).toEqual(true);
+	});
+
 });
 
 
 describe('Birthdate input', function() {
    
-
    it('should be invalid when person is younger than 13', function() {
 	   var bDate = element(by.css('#birthdate'));
 	   expect(bDate.$valid).
