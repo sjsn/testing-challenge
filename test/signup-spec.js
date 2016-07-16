@@ -218,27 +218,59 @@ describe('Email input', function() {
 	browser.get('http://localhost:8080');
 	});
 
-	it('should be valid if email is valid', function(){
+	it('should be valid if email is valid 1', function(){
 		var emailInput = element(by.css("#email"));
 		var message = element(by.css('#help-block-email'));
-		var errorEmail = element(by.css('#errorEmail'));
+		var errorEmail = element(by.css('#error'));
 		
 		//should be invalid if empty and show required message
 		emailInput.sendKeys('');
 		expect(emailInput.$valid).not.toEqual(true);
+	});
+
+		it('should be valid if email is valid 2', function(){
+		var emailInput = element(by.css("#email"));
+		var message = element(by.model('message'));
+		var errorEmail = element(by.css('#error'));
+		
+		//should be invalid if empty and show required message
+		emailInput.sendKeys('');
+		emailInput.clear();
 		expect(message.isPresent()).toEqual(true);
+	});
+
+	it('should be valid if email is valid 3', function(){
+		var emailInput = element(by.css("#email"));
+		var message = element(by.css('#help-block-email'));
+		var errorEmail = element(by.css('#error'));
 
 		//should be invalid if not proper format and 
 		//show that email is invalid error message
 		emailInput.clear(); 
 		emailInput.sendKeys('aaa');
 		expect(emailInput.$valid).not.toEqual(true);
+	});
+
+	it('should be valid if email is valid 4', function(){
+		var emailInput = element(by.css("#email"));
+		var message = element(by.css('#help-block-email'));
+		var errorEmail = element(by.model('error'));
+
+		//should be invalid if not proper format and 
+		//show that email is invalid error message
+		emailInput.sendKeys('aaa');
 		expect(errorEmail.isPresent()).toEqual(true);
+	});
+
+	it('should be valid if email is valid 5', function(){
+		var emailInput = element(by.css("#email"));
+		var message = element(by.css('#help-block-email'));
+		var errorEmail = element(by.css('#error'));
 
 		//should be valid if email is valid
 		emailInput.clear(); 
 		emailInput.sendKeys('cat@gmail.com');
-		expect(emailInput.$valid).toEqual(true);
+		expect(emailInput.$valid).not.toEqual(false);
 	});
 
 

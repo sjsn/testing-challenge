@@ -29,8 +29,8 @@
 			<div class="form-group">
 				<label for="email">Email:</label>
 				<input type="email" id="email" name="email" type="email" class="form-control" ng-model="email" required></input>
-				<p aria-live="polite" role="alert" class="help-block" ng-if="signupForm.email.$touched">Required!</p>
-				<p aria-live="polite" role="alert" class="error" ng-show="signupForm.email.$invalid && !signupForm.email.$pristine">Not valid email!</p>
+				<p aria-live="polite" role="alert" class="help-block-email" ng-if="signupForm.email.$invalid" ng-model="message">Required!</p>
+				<p aria-live="polite" role="alert" class="error" ng-if="signupForm.email.$invalid" ng-model="error">Not valid email!</p>
 			</div>
 
 			<div class="form-group">
