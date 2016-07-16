@@ -220,20 +220,25 @@ describe('Email input', function() {
 
 	it('should be valid if email is valid', function(){
 		var emailInput = element(by.css("#email"));
-		var button = element(by.css("#submit"));
-		//should be invalid if empty
+		var message = element(by.css('#help-block-email'));
+		var errorEmail = element(by.css('#errorEmail'));
+		
+		//should be invalid if empty and show required message
 		emailInput.sendKeys('');
-		expect(button.isEnabled()).toEqual(false);
+		expect(emailInput.$valid).not.toEqual(true);
+		expect(message.isPresent()).toEqual(true);
 
-		//should be invalid if not proper format
+		//should be invalid if not proper format and 
+		//show that email is invalid error message
 		emailInput.clear(); 
 		emailInput.sendKeys('aaa');
-		expect(button.isEnabled()).toEqual(false);
+		expect(emailInput.$valid).not.toEqual(true);
+		expect(errorEmail.isPresent()).toEqual(true);
 
 		//should be valid if email is valid
 		emailInput.clear(); 
 		emailInput.sendKeys('cat@gmail.com');
-		expect(button.isEnabled()).toEqual(true);
+		expect(emailInput.$valid).toEqual(true);
 	});
 
 
