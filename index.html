@@ -18,7 +18,7 @@
 </head>
 <body>
 	<main role="main" class="container formApp" ng-app="formApp">
-		<header>
+		<header role="banner">
 			<h1>Sign up</h1>
 			<p id="form-desc">Our service is fun and awesome, but you must be 13 years old to join</p>
 			<hr />
@@ -29,8 +29,8 @@
 			<div class="form-group">
 				<label for="email">Email:</label>
 				<input type="email" id="email" name="email" type="email" class="form-control" ng-model="email" required></input>
-				<p class="help-block" ng-if="signupForm.email.$touched">Required!</p>
-				<p class="error" ng-show="signupForm.input.$error.email">Not valid email!</p>
+				<p aria-live="polite" role="alert" class="help-block" ng-if="signupForm.email.$touched">Required!</p>
+				<p aria-live="polite" role="alert" class="error" ng-show="signupForm.input.$error.email">Not valid email!</p>
 			</div>
 
 			<div class="form-group">
@@ -47,28 +47,28 @@
 			<div ng-class="form-group">
 				<label for="birthdate">Birthdate:</label>
 				<input id="birthdate" name="birthdate" class="form-control" ng-model="birthdate" required ng-change=validateBday() role="textbox"></input>
-				<p aria-live="polite" class="help-block" ng-if="signupForm.birthdate.$touched && signupForm.birthdate.$error.required">Required!</p>
-				<p aria-live="polite" class="errorValid" ng-if="signupForm.birthdate.$error.validDate">You must enter date in a valid date format</p>
-				<p aria-live="polite" class="errorAge" ng-if="signupForm.birthdate.$error.validAge">You must be 13 years old to join</p>
+				<p aria-live="polite" role="alert" class="help-block" ng-if="signupForm.birthdate.$touched && signupForm.birthdate.$error.required">Required!</p>
+				<p aria-live="polite" role="alert" class="errorValid" ng-if="signupForm.birthdate.$error.validDate">You must enter date in a valid date format</p>
+				<p aria-live="polite" role="alert" class="errorAge" ng-if="signupForm.birthdate.$error.validAge">You must be 13 years old to join</p>
 			</div>
 
 			<div ng-class="form-group">
 				<label for="password">Password:</label>
 				<input type="password" id="password" name="password" class="form-control" ng-model="password" ng-change="passConf()" required></input>
-				<p class="help-block-password" ng-show="signupForm.passwordConf.$touched && signupForm.password.$invalid" ng-hide="signupForm.password.$valid">Required!</p>
-				<p class="help-block-password2" ng-if="password != passwordConf">Passwords must match</p>
+				<p aria-live="polite" role="alert" class="help-block-password" ng-show="signupForm.passwordConf.$touched && signupForm.password.$invalid" ng-hide="signupForm.password.$valid">Required!</p>
+				<p aria-live="polite" role="alert" class="help-block-password2" ng-if="password != passwordConf">Passwords must match</p>
 			</div>
 
 			<div class="form-group">
 				<label for="passwordConf">Confirm Password:</label>
 				<input id="passwordConf" name="passwordConf" type="password" class="form-control" ng-model="passwordConf" ng-change="passConf()" required></input>
-				<p class="help-block-passconf" ng-show="signupForm.passwordConf.$touched && signupForm.passwordConf.$invalid" ng-hide="signupForm.passwordConf.$valid">Required!</p>
-				<p class="help-block-passconf2" ng-if="password != passwordConf">Passwords must match</p>
+				<p aria-live="polite" role="alert" class="help-block-passconf" ng-show="signupForm.passwordConf.$touched && signupForm.passwordConf.$invalid" ng-hide="signupForm.passwordConf.$valid">Required!</p>
+				<p aria-live="polite" role="alert"class="help-block-passconf2" ng-if="password != passwordConf">Passwords must match</p>
 			</div>
 
-			<button class="btn btn-default" id="reset" role="button" ng-click="clearForm()">Reset</button>
-			<button class="btn btn-primary" id="submit" role="button" ng-disabled="signupForm.$invalid" ng-click="submitForm()">Sign Me Up!</button>
-			<p ng-if="submit &amp;&amp; signupForm.$valid" id="confirmation" aria-live="polite">Form submitted!</p>
+			<button role=button aria-label="Reset" class="btn btn-default" id="reset" role="button" ng-click="clearForm()">Reset</button>
+			<button role=button aria-label="Sign up"  class="btn btn-primary" id="submit" role="button" ng-disabled="signupForm.$invalid" ng-click="submitForm()">Sign Me Up!</button>
+			<p role="alert" ng-if="submit &amp;&amp; signupForm.$valid" id="confirmation" aria-live="polite">Form submitted!</p>
 
 		</form>
 	</main>
