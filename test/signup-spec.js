@@ -358,5 +358,15 @@ describe('password confirm input', function() {
 		expect(message.isPresent()).toEqual(true);
 	});
 
+});
+
+
+describe('Birthdate input', function() {
+   
+
+   it('should be invalid when person is younger than 13', function() {
+	   var age = element(by.css('#birthdate'));
+
+   });
 
 });
