@@ -1,4 +1,4 @@
-'use strict';
+	'use strict';
 
 describe("Submit form button", function() {
 
@@ -324,7 +324,8 @@ describe('Birthdate input', function() {
    
 
    it('should be invalid when person is younger than 13', function() {
-	   var age = element(by.css('#birthdate'));
+	   var bDate = element(by.css('#birthdate'));
+	   expect(bDate.$valid).
 
    });
 
