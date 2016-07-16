@@ -11,6 +11,8 @@ myApp.controller('formCtrl', ["$scope", function($scope){
 		$scope.birthdate = "";
 		$scope.password = "";
 		$scope.passwordConf = "";
+		$scope.birthdate = "";
+		$scope.age = "";
 	};
 
 	$scope.submitForm = function() {
@@ -31,5 +33,28 @@ myApp.controller('formCtrl', ["$scope", function($scope){
 
 	};
 	
+	$scope.validateBday = function() {
+		var theDate = Date.parse($scope.birthdate);
+		var theDateString = theDate.toString();
+		if (theDateString == 'NaN') {
+			$scope.signupForm.birthdate.$setValidity("validDate", false);
+		}
+		else {
+			$scope.signupForm.birthdate.$setValidity("validDate", true);
+			var today = new Date();
+			var bday = new Date(theDate);
+			var age = (today.getFullYear() - bday.getFullYear());
+			if (today.getMonth() < bday.getMonth() || today.getMonth() == bday.getMonth() && today.getDate() < bday.getDate()) {
+				age -= 1;
+			}
+			if (age >= 13) {
+				$scope.signupForm.birthdate.$setValidity("validAge", true);
+			} else {
+				$scope.signupForm.birthdate.$setValidity("validAge", false);
+			}
+		}
+
+
+	}
 
 }]);
