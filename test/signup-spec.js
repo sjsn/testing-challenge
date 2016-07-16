@@ -211,17 +211,13 @@ describe("Reset form button", function() {
 });
 
 
-describe('Signup Angular module and controller', function(){
-	it('should have', function(){
-
+describe('Email input', function() {
+	//Runs this callback before each test
+	beforeEach(function() {
+		// Reload the page before each test to keep testing 'clean'
+	browser.get('http://localhost:8080');
 	});
-	it('should check controller', function(){
 
-	});
-});
-
-describe('Sign up Form', function() {
-	
 	it('should be valid if email is valid', function(){
 		var emailInput = element(by.css("#email"));
 		var button = element(by.css("#submit"));
@@ -364,7 +360,6 @@ describe('password confirm input', function() {
 
 describe('Birthdate input', function() {
    
-
    it('should be invalid when person is younger than 13', function() {
 	   var age = element(by.css('#birthdate'));
 
